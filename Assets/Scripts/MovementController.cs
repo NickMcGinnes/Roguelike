@@ -70,6 +70,10 @@ public class MovementController : MonoBehaviour {
 		{
 			MoveTo(things[0].gameObject.transform.position);
 		}
+		else
+		{
+			MoveTo(gameObject.transform.position);
+		}
 		
 		
 	}
