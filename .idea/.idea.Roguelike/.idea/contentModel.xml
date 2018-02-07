@@ -6,17 +6,19 @@
       <e p="Assembly-CSharp-Editor-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="CameraFollowPlayer.cs" t="Include" />
-        <e p="CanvasControl.cs" t="Include" />
-        <e p="CharacterInfo.cs" t="Include" />
-        <e p="DetectClicksAndTouches.cs" t="Include" />
-        <e p="MyAgent.cs" t="Include" />
         <e p="Plugins" t="Include">
           <e p="Editor" t="Include">
             <e p="JetBrains" t="Include">
               <e p="Unity3DRider.cs" t="Include" />
             </e>
           </e>
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="CameraFollowPlayer.cs" t="Include" />
+          <e p="CanvasControl.cs" t="Include" />
+          <e p="CharacterInfo.cs" t="Include" />
+          <e p="DetectClicksAndTouches.cs" t="Include" />
+          <e p="MyAgent.cs" t="Include" />
         </e>
       </e>
       <e p="Library" t="ExcludeRecursive" />

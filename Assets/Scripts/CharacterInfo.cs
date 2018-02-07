@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions.Comparers;
+using UnityEngine.AI;
 
 public class CharacterInfo : MonoBehaviour
 {
@@ -41,7 +42,11 @@ public class CharacterInfo : MonoBehaviour
 	void Update ()
 	{
 		HealthPercent = (float)Health / MaxHealth;
+	}
 
+	void calcValues()
+	{
+		
 	}
 
 	private void OnMouseEnter()
@@ -53,5 +58,10 @@ public class CharacterInfo : MonoBehaviour
 	{
 		TheCanvas.GetComponent<CanvasControl>().MouseOverExit();
 		
+	}
+	
+	public void NavTarget(Vector3 target)
+	{
+		GetComponent<NavMeshAgent>().SetDestination(target);
 	}
 }
