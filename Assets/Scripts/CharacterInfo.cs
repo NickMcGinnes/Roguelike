@@ -22,8 +22,6 @@ public class CharacterInfo : MonoBehaviour
 
 	public int Dexterity;
 
-	public int Constitution;
-
 	public float Damage;
 	
 	public float MoveSpeed;
@@ -41,12 +39,18 @@ public class CharacterInfo : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		HealthPercent = (float)Health / MaxHealth;
+		CalcValues();
 	}
 
-	void calcValues()
+	void CalcValues()
 	{
+		HealthPercent = (float)Health / MaxHealth;
 		
+		//calc damage using strength
+		
+		//calc attack speed using Dex
+		
+		//calc move speed using Dex
 	}
 
 	private void OnMouseEnter()
@@ -60,8 +64,5 @@ public class CharacterInfo : MonoBehaviour
 		
 	}
 	
-	public void NavTarget(Vector3 target)
-	{
-		GetComponent<NavMeshAgent>().SetDestination(target);
-	}
+	
 }
