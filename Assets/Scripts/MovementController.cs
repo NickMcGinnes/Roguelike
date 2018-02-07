@@ -6,6 +6,19 @@ using UnityEngine.AI;
 public class MovementController : MonoBehaviour {
 	
 	
+	
+	
+	
+	
+	
+	public float Radius = 5.0f;
+
+	public LayerMask Mask;
+
+	private GameObject _targetEnemy;
+	
+	
+	
 	// Update is called once per frame
 	void Update () {
 		if (gameObject.CompareTag("Player"))
@@ -14,7 +27,7 @@ public class MovementController : MonoBehaviour {
 		}
 		else
 		{
-			
+			EnemyMovement();
 		}
 	}
 
@@ -51,6 +64,13 @@ public class MovementController : MonoBehaviour {
 
 	void EnemyMovement()
 	{
+		Collider[] things = Physics.OverlapSphere(transform.position, Radius, Mask);
+
+		if (things.Length > 0)
+		{
+			MoveTo(things[0].gameObject.transform.position);
+		}
+		
 		
 	}
 	void MoveTo(Vector3 myTarget)
