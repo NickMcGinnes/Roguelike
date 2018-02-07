@@ -5,12 +5,6 @@ using UnityEngine.AI;
 
 public class MovementController : MonoBehaviour {
 	
-	
-	
-	
-	
-	
-	
 	public float Radius = 5.0f;
 
 	public LayerMask Mask;
@@ -42,7 +36,7 @@ public class MovementController : MonoBehaviour {
 				MoveTo(transform.position);
 				gameObject.transform.LookAt(hit.point);
 			}
-			if (Input.GetMouseButtonDown(0))
+			if (Input.GetMouseButton(0))
 			{
 				if (Input.GetKey(KeyCode.LeftShift))
 				{
@@ -68,17 +62,33 @@ public class MovementController : MonoBehaviour {
 
 		if (things.Length > 0)
 		{
+			if (GetComponent<NavMeshAgent>().isStopped)
+				GetComponent<NavMeshAgent>().isStopped = false;
 			MoveTo(things[0].gameObject.transform.position);
+
+			float distance = Vector3.Distance(gameObject.transform.position, things[0].gameObject.transform.position);
+			if (distance < 1.5f)
+			{
+				Debug.Log("Can attack");
+			}
 		}
 		else
 		{
-			MoveTo(gameObject.transform.position);
+			StopHere();
 		}
-		
+	}
+
+	void EnemyAttack()
+	{
 		
 	}
 	void MoveTo(Vector3 myTarget)
 	{
 		GetComponent<NavMeshAgent>().SetDestination(myTarget);
+	}
+
+	void StopHere()
+	{
+		GetComponent<NavMeshAgent>().isStopped = true;
 	}
 }

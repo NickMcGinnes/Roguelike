@@ -26,15 +26,15 @@ public class CanvasControl : MonoBehaviour
 	{
 		if (MouseOverUi.activeSelf)
 		{
-			Ray ray;
-			RaycastHit hit;
 			//set up our ray from screen to scene
-			ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+			RaycastHit hit;
+			
 			
 			//if we hit
 			if (Physics.Raycast(ray, out hit, Mathf.Infinity))
 			{	
-				SetMouseUI(hit.collider.gameObject);
+				SetMouseUi(hit.collider.gameObject);
 			}
 		}
 	}
@@ -49,7 +49,7 @@ public class CanvasControl : MonoBehaviour
 		MouseOverUi.SetActive(false);
 	}
 
-	void SetMouseUI(GameObject highlightedGameObject)
+	void SetMouseUi(GameObject highlightedGameObject)
 	{
 		CharacterInfo myChar = highlightedGameObject.GetComponent<CharacterInfo>();
 		
