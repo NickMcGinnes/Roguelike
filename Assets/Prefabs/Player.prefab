@@ -500,7 +500,7 @@ MonoBehaviour:
   Radius: 5
   Mask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
 --- !u!195 &195511244396559152
 NavMeshAgent:
   m_ObjectHideFlags: 1

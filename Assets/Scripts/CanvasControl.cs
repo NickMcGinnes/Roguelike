@@ -49,8 +49,6 @@ public class CanvasControl : MonoBehaviour
 		//set up our ray from screen to scene
 		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 		RaycastHit hit;
-
-
 		//if we hit
 		if (Physics.Raycast(ray, out hit, Mathf.Infinity))
 		{

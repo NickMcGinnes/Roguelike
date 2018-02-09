@@ -76,15 +76,15 @@ public class CharacterInfo : MonoBehaviour
 		GameObject newP = Instantiate(PlayerPrefab, new Vector3(-500, 0, 0), Quaternion.identity);
 		Camera.main.GetComponent<CameraFollowPlayer>().SetNewPlayer(newP);
 		TheCanvas.GetComponent<CanvasControl>().SetNewPlayer(newP);
-		Destroy(gameObject);
+		//Destroy(gameObject);
 		
 		//dont destroy but switch to new player and set this to Feral
-		/*
+		
 		MaxHealth = 50;
 		Health = MaxHealth;
 		gameObject.tag = "Enemies";
 		gameObject.layer = LayerMask.NameToLayer("Enemies");
-		*/
+		
 	}
 	
 	private void CalcValues()
