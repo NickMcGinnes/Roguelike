@@ -17,7 +17,6 @@
           <e p="CameraFollowPlayer.cs" t="Include" />
           <e p="CanvasControl.cs" t="Include" />
           <e p="CharacterInfo.cs" t="Include" />
-          <e p="DetectClicksAndTouches.cs" t="Include" />
           <e p="MovementController.cs" t="Include" />
           <e p="MyAgent.cs" t="Include" />
         </e>

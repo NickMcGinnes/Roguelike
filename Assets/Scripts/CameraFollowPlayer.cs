@@ -31,10 +31,15 @@ public class CameraFollowPlayer : MonoBehaviour
         targetPos.y = _vcameraDifference.y;
         targetPos.z -= _vcameraDifference.z;
 
-        var currentDistance = Vector3.Distance(targetPos, currentPos);
+        float currentDistance = Vector3.Distance(targetPos, currentPos);
         currentDistance = currentDistance * 2;
         
         currentPos =  Vector3.Lerp(currentPos, targetPos, currentDistance*Time.deltaTime);
         transform.position = currentPos;
 	}
+
+    public void SetNewPlayer(GameObject myNewPlayer)
+    {
+        Player = myNewPlayer;
+    }
 }

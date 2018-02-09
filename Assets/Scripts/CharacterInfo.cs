@@ -33,11 +33,15 @@ public class CharacterInfo : MonoBehaviour
 	public Material CurrentMat;
 
 	public Material HitMat;
+
+	public GameObject PlayerPrefab;
 	
 	// Use this for initialization
 	void Start ()
 	{
 		TheCanvas = GameObject.FindGameObjectWithTag("Canvas");
+		Health = MaxHealth;
+		
 	}
 	
 	// Update is called once per frame
@@ -69,6 +73,9 @@ public class CharacterInfo : MonoBehaviour
 
 	private void SetPlayerToFeral()
 	{
+		GameObject newP = Instantiate(PlayerPrefab, new Vector3(-500, 0, 0), Quaternion.identity);
+		Camera.main.GetComponent<CameraFollowPlayer>().SetNewPlayer(newP);
+		TheCanvas.GetComponent<CanvasControl>().SetNewPlayer(newP);
 		Destroy(gameObject);
 		
 		//dont destroy but switch to new player and set this to Feral
