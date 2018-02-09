@@ -3,14 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class MovementController : MonoBehaviour {
+public class MovementController : MonoBehaviour
+{
+
+	public bool IsDebug = false;
 	
 	public float Radius = 5.0f;
 
 	public LayerMask Mask;
 
 	private GameObject _targetEnemy;
-	
+
+	private float _attackTime = 0.0f;
 	
 	
 	// Update is called once per frame
@@ -33,17 +37,23 @@ public class MovementController : MonoBehaviour {
 		{
 			if (Input.GetKey(KeyCode.LeftShift))
 			{
-				MoveTo(transform.position);
-				gameObject.transform.LookAt(hit.point);
+				StopHere();
+				
+				//this lookat function kept breaking the player, need to 
+				//gameObject.transform.LookAt(hit.point);
 			}
 			if (Input.GetMouseButton(0))
 			{
 				if (Input.GetKey(KeyCode.LeftShift))
 				{
 					//Attack();
+					
+					PlayerAttack();
 				}
 				else
 				{
+					if (GetComponent<NavMeshAgent>().isStopped)
+						GetComponent<NavMeshAgent>().isStopped = false;
 					MoveTo(hit.point);
 				}
 			}
@@ -55,6 +65,27 @@ public class MovementController : MonoBehaviour {
 		}
 	}
 
+	private void PlayerAttack()
+	{
+		//set up our ray from screen to scene
+		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+		RaycastHit hit;
+		//if we hit
+		if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+		{
+			if (hit.collider.gameObject.CompareTag("Enemies"))
+			{
+				if (Time.time > _attackTime + GetComponent<CharacterInfo>().AttackSpeed)
+				{
+					float myDamage = GetComponent<CharacterInfo>().Damage;
+		
+					hit.collider.gameObject.GetComponent<CharacterInfo>().Hit(myDamage);
+					_attackTime = Time.time;
+				}
+			}
+			
+		}
+	}
 
 	void EnemyMovement()
 	{
@@ -67,10 +98,11 @@ public class MovementController : MonoBehaviour {
 			MoveTo(things[0].gameObject.transform.position);
 
 			float distance = Vector3.Distance(gameObject.transform.position, things[0].gameObject.transform.position);
-			if (distance < 1.5f)
-			{
-				Debug.Log("Can attack");
-			}
+			
+			if (!(distance < 1.2f)) return;
+			StopHere();
+			transform.LookAt(things[0].gameObject.transform);
+			EnemyAttack(things[0].gameObject);
 		}
 		else
 		{
@@ -78,16 +110,25 @@ public class MovementController : MonoBehaviour {
 		}
 	}
 
-	void EnemyAttack()
+	private void EnemyAttack(GameObject myTarget)
 	{
+		if (Time.time > _attackTime + GetComponent<CharacterInfo>().AttackSpeed)
+		{
+			float myDamage = GetComponent<CharacterInfo>().Damage;
+		
+			myTarget.GetComponent<CharacterInfo>().Hit(myDamage);
+			_attackTime = Time.time;
+		}
+		
 		
 	}
-	void MoveTo(Vector3 myTarget)
+
+	private void MoveTo(Vector3 myTarget)
 	{
 		GetComponent<NavMeshAgent>().SetDestination(myTarget);
 	}
 
-	void StopHere()
+	private void StopHere()
 	{
 		GetComponent<NavMeshAgent>().isStopped = true;
 	}
