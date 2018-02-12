@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Room
 {
-	public Vector3 Gridpos;
+	public Vector3 GridPosition;
 
 	public int Type;
 
