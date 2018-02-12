@@ -14,7 +14,7 @@ public class LevelGen : MonoBehaviour
 	
 	private List<Vector3> _takenPositions = new List<Vector3>();
 	
-	private int _gridSizeX, _gridSizeZ, _numberofRooms = 20;
+	private int _gridSizeX, _gridSizeZ, _numberofRooms = 50;
 	
 	public GameObject RoomWhiteObj;
 	
@@ -50,23 +50,28 @@ public class LevelGen : MonoBehaviour
 		for (int i = 0; i < _numberofRooms; i++)
 		{
 			//Debug.Log("inside forloop");
-			float RandomPerc = i / ((float) _numberofRooms - 1);
-			randomCompare = Mathf.Lerp(randomCompareStart, randomCompareEnd, RandomPerc);
+			float randomPerc = i / ((float) _numberofRooms - 1);
+			randomCompare = Mathf.Lerp(randomCompareStart, randomCompareEnd, randomPerc);
 			
 			//grab new position
 			checkPosition = NewPostion();
-			//Debug.Log(message: NumberOfNeighbors(checkPosition, _takenPositions));
+
+			float myRandomNumber = Random.value;
+			Debug.Log("number of neighbors " + NumberOfNeighbors(checkPosition, _takenPositions));
+			//Debug.Log(myRandomNumber);
+			//Debug.Log(randomCompare);
+			
 			//test new position   
-			if (NumberOfNeighbors(checkPosition, _takenPositions) >= 1 && Random.value > randomCompare)
+			if (NumberOfNeighbors(checkPosition, _takenPositions) >= 1 && myRandomNumber > randomCompare)
 			{
 				int iterations = 0;
 				do
 				{
-					Debug.Log("inside do loop");
+					//Debug.Log("inside do loop");
 
 					checkPosition = SelectiveNewPostion();
 					iterations++;
-				} while (NumberOfNeighbors(checkPosition, _takenPositions) > 1 && iterations < 5);
+				} while (NumberOfNeighbors(checkPosition, _takenPositions) > 1 && iterations < 100);
 
 				if (iterations >= 50)
 				{
@@ -74,7 +79,7 @@ public class LevelGen : MonoBehaviour
 				}
 				
 				//finalize position
-				Debug.Log(checkPosition);
+				//Debug.Log(checkPosition);
 				Rooms[(int) checkPosition.x + _gridSizeX,(int) checkPosition.z+_gridSizeZ] = new Room(checkPosition, 0);
 				_takenPositions.Insert(0,checkPosition);
 			}
@@ -258,8 +263,8 @@ public class LevelGen : MonoBehaviour
 				continue;
 
 			Vector3 drawPosition = room.GridPosition;
-			drawPosition.x *= 1.5f;
-			drawPosition.z *= 1.5f;
+			drawPosition.x *= 10;
+			drawPosition.z *= 10;
 			
 			
 			 
