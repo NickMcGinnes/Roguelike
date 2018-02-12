@@ -7,17 +7,17 @@ using Random = UnityEngine.Random;
 
 public class LevelGen : MonoBehaviour
 {
-
-	public Vector3 WorldSize;
-
-	private Room[,] _rooms;
-
+	
+	public Vector3 WorldSize = new Vector3(4,0,4);
+	
+	public Room[,] Rooms;
+	
 	private List<Vector3> _takenPositions = new List<Vector3>();
-
+	
 	private int _gridSizeX, _gridSizeZ, _numberofRooms = 20;
-
+	
 	public GameObject RoomWhiteObj;
-
+	
 	private void Start()
 	{
 
@@ -34,14 +34,14 @@ public class LevelGen : MonoBehaviour
 		DrawMap();
 
 	}
-
+	
 	void CreateRooms()
 	{
 		//setup
-		_rooms = new Room[_gridSizeX * 2, _gridSizeZ * 2];
-		_rooms[_gridSizeX,_gridSizeZ] = new Room(Vector3.zero, 1);
+		Rooms = new Room[_gridSizeX * 2, _gridSizeZ * 2];
+		Rooms[_gridSizeX,_gridSizeZ] = new Room(Vector3.zero, 1);
 		_takenPositions.Insert(0,Vector3.zero);
-		Vector3 checkPosition = Vector3.zero;
+		Vector3 checkPosition;
 		
 		//magic numbers
 		float randomCompare = 0.2f, randomCompareStart = 0.2f, randomCompareEnd = 0.01f;
@@ -49,20 +49,24 @@ public class LevelGen : MonoBehaviour
 		//add rooms
 		for (int i = 0; i < _numberofRooms; i++)
 		{
-			float RandomPerc = ((float) i) / (((float) _numberofRooms - 1));
+			//Debug.Log("inside forloop");
+			float RandomPerc = i / ((float) _numberofRooms - 1);
 			randomCompare = Mathf.Lerp(randomCompareStart, randomCompareEnd, RandomPerc);
 			
 			//grab new position
 			checkPosition = NewPostion();
-			//test new position
-			if (NumberOfNeighbors(checkPosition, _takenPositions) > 1 && Random.value > randomCompare)
+			//Debug.Log(message: NumberOfNeighbors(checkPosition, _takenPositions));
+			//test new position   
+			if (NumberOfNeighbors(checkPosition, _takenPositions) >= 1 && Random.value > randomCompare)
 			{
 				int iterations = 0;
 				do
 				{
+					Debug.Log("inside do loop");
+
 					checkPosition = SelectiveNewPostion();
 					iterations++;
-				} while (NumberOfNeighbors(checkPosition, _takenPositions) > 1 && iterations < 100);
+				} while (NumberOfNeighbors(checkPosition, _takenPositions) > 1 && iterations < 5);
 
 				if (iterations >= 50)
 				{
@@ -70,17 +74,18 @@ public class LevelGen : MonoBehaviour
 				}
 				
 				//finalize position
-				_rooms[(int) checkPosition.x + _gridSizeX,(int) checkPosition.z+_gridSizeZ] = new Room(checkPosition, 0);
+				Debug.Log(checkPosition);
+				Rooms[(int) checkPosition.x + _gridSizeX,(int) checkPosition.z+_gridSizeZ] = new Room(checkPosition, 0);
 				_takenPositions.Insert(0,checkPosition);
 			}
 			
 		}
 	}
-
+	
 	Vector3 NewPostion()
 	{
 		int x = 0, y = 0, z = 0;
-		Vector3 checkingPos = Vector3.zero;
+		Vector3 checkingPos;
 
 		do
 		{
@@ -170,7 +175,7 @@ public class LevelGen : MonoBehaviour
 		}
 		return checkingPos;
 	}
-
+	
 	int NumberOfNeighbors(Vector3 checkingPos, List<Vector3> usedPositions)
 	{
 		int ret = 0;
@@ -194,71 +199,71 @@ public class LevelGen : MonoBehaviour
 		
 		return ret;
 	}
-
+	
 	void SetRoomDoors()
 	{
 		for (int x = 0; x < (_gridSizeX * 2); x++)
 		{
 			for (int z = 0; z < (_gridSizeZ * 2); z++)
 			{
-				if (_rooms[x, z] == null)
+				if (Rooms[x, z] == null)
 					continue;
 				Vector3 gridPosition = new Vector3(x,0,z);
 				
 				if (z - 1 < 0)
 				{
-					_rooms[x, z].DoorS = false;
+					Rooms[x, z].DoorS = false;
 				}
 				else
 				{
-					_rooms[x, z].DoorS = (_rooms[x,z-1] != null);
+					Rooms[x, z].DoorS = (Rooms[x,z-1] != null);
 				}
 				//****
 				if (z + 1 >= _gridSizeZ * 2)
 				{
-					_rooms[x, z].DoorN = false;
+					Rooms[x, z].DoorN = false;
 				}
 				else
 				{
-					_rooms[x, z].DoorN = (_rooms[x,z+1] != null);
+					Rooms[x, z].DoorN = (Rooms[x,z+1] != null);
 				}
 				//****
 				if (x - 1 < 0)
 				{
-					_rooms[x, z].DoorW = false;
+					Rooms[x, z].DoorW = false;
 				}
 				else
 				{
-					_rooms[x, z].DoorW = (_rooms[x-1,z] != null);
+					Rooms[x, z].DoorW = (Rooms[x-1,z] != null);
 				}
 				//****
 				if (x + 1 >= _gridSizeX * 2)
 				{
-					_rooms[x, z].DoorE = false;
+					Rooms[x, z].DoorE = false;
 				}
 				else
 				{
-					_rooms[x, z].DoorE = (_rooms[x+1,z] != null);
+					Rooms[x, z].DoorE = (Rooms[x+1,z] != null);
 				}
 				
 			}
 		}
 	}
-
+	
 	void DrawMap()
 	{
-		foreach (Room room in _rooms)
+		foreach (Room room in Rooms)
 		{
 			if (room == null)
 				continue;
 
 			Vector3 drawPosition = room.GridPosition;
-			drawPosition.x *= 16;
-			drawPosition.z *= 8;
+			drawPosition.x *= 1.5f;
+			drawPosition.z *= 1.5f;
 			
 			
 			 
-			RoomObjectSelector mapper = GameObject.Instantiate(RoomWhiteObj, drawPosition, Quaternion.identity).GetComponent<RoomObjectSelector>();
+			RoomObjectControl mapper = GameObject.Instantiate(RoomWhiteObj, drawPosition, Quaternion.identity).GetComponent<RoomObjectControl>();
 			mapper.type = room.Type;
 			mapper.north = room.DoorN;
 			mapper.south = room.DoorS;

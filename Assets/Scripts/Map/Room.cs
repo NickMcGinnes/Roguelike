@@ -12,6 +12,7 @@ public class Room
 
 	public Room(Vector3 myGridpos, int myType)
 	{
-		
+		GridPosition = myGridpos;
+		Type = myType;
 	}
 }

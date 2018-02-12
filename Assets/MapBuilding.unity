@@ -286,8 +286,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0be88a0ef3c8f7743907ea8f115e4e2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WorldSize: {x: 0, y: 0, z: 0}
-  RoomWhiteObj: {fileID: 0}
+  WorldSize: {x: 2, y: 0, z: 2}
+  RoomWhiteObj: {fileID: 1009639980064428, guid: f17aa2424e7ebfc468c8c165223f66e2,
+    type: 2}
 --- !u!4 &2113115020
 Transform:
   m_ObjectHideFlags: 0
@@ -295,7 +296,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2113115018}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -509.91333, y: 0.86474633, z: 18.818737}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
