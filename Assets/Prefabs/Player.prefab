@@ -474,16 +474,19 @@ MonoBehaviour:
   Name: Fred
   Info: Vampire Lord
   Health: 100
-  MaxHealth: 100
+  _maxHealth: 160
   HealthPercent: 0
+  BloodPoints: 0
   Strength: 0
   Dexterity: 0
-  Damage: 10
+  Damage: 12
   MoveSpeed: 0
   AttackSpeed: 0.5
   TheCanvas: {fileID: 0}
   CurrentMat: {fileID: 2100000, guid: c1dca73990927ba40b7b39787700a75d, type: 2}
+  MyMaterial: {fileID: 2100000, guid: c1dca73990927ba40b7b39787700a75d, type: 2}
   HitMat: {fileID: 2100000, guid: b2c457c85326ffa489fc047b2e9984d4, type: 2}
+  BleedMat: {fileID: 2100000, guid: 18645c9984c210c4eb5d1c47245c6502, type: 2}
   PlayerPrefab: {fileID: 1839126071953264}
 --- !u!114 &114611044202616526
 MonoBehaviour:

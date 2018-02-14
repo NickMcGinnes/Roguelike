@@ -14,7 +14,9 @@ public class MovementController : MonoBehaviour
 
 	private GameObject _targetEnemy;
 
-	private float _attackTime = 0.0f;
+	private float _primaryAttackTime = 0.0f;
+	
+	private float _secondaryAttackTime = 0.0f;
 	
 	
 	// Update is called once per frame
@@ -33,8 +35,10 @@ public class MovementController : MonoBehaviour
 	{
 		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 		RaycastHit hit;
+		
 		if (Physics.Raycast(ray, out hit, Mathf.Infinity))
 		{
+			float distance = Vector3.Distance(gameObject.transform.position, hit.collider.gameObject.transform.position);
 			if (Input.GetKey(KeyCode.LeftShift))
 			{
 				StopHere();
@@ -44,11 +48,10 @@ public class MovementController : MonoBehaviour
 			}
 			if (Input.GetMouseButton(0))
 			{
-				if (Input.GetKey(KeyCode.LeftShift))
+				if (distance < 1.4f && hit.collider.gameObject.CompareTag("Enemies"))
 				{
-					//Attack();
-					
-					PlayerAttack();
+					StopHere();
+					PlayerBasicAttack();
 				}
 				else
 				{
@@ -60,12 +63,22 @@ public class MovementController : MonoBehaviour
 
 			if (Input.GetMouseButtonDown(1))
 			{
-				//SpecialAttack();
+				if (distance < 1.4f && hit.collider.gameObject.CompareTag("Enemies"))
+				{
+					PlayerSpecialAttack();
+				}
+				else
+				{
+					
+					if (GetComponent<NavMeshAgent>().isStopped)
+						GetComponent<NavMeshAgent>().isStopped = false;
+					MoveTo(hit.point);
+				}
 			}
 		}
 	}
 
-	private void PlayerAttack()
+	private void PlayerBasicAttack()
 	{
 		//set up our ray from screen to scene
 		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -75,15 +88,39 @@ public class MovementController : MonoBehaviour
 		{
 			if (hit.collider.gameObject.CompareTag("Enemies"))
 			{
-				if (Time.time > _attackTime + GetComponent<CharacterInfo>().AttackSpeed)
+				if (Time.time > _primaryAttackTime + GetComponent<CharacterInfo>().AttackSpeed)
 				{
 					float myDamage = GetComponent<CharacterInfo>().Damage;
 		
 					hit.collider.gameObject.GetComponent<CharacterInfo>().Hit(myDamage);
-					_attackTime = Time.time;
+					_primaryAttackTime = Time.time;
 				}
 			}
-			
+		}
+	}
+
+	private void PlayerSpecialAttack()
+	{
+		//set up our ray from screen to scene
+		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+		RaycastHit hit;
+		//if we hit
+		if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+		{
+			if (hit.collider.gameObject.CompareTag("Enemies"))
+			{
+				_targetEnemy = hit.collider.gameObject;
+				if (Time.time > _secondaryAttackTime + GetComponent<CharacterInfo>().AttackSpeed)
+				{
+					float myDamage = (0.2f * _targetEnemy.GetComponent<CharacterInfo>().GetMaxHealth());
+					
+					if (myDamage >= _targetEnemy.GetComponent<CharacterInfo>().Health)
+						gameObject.GetComponent<CharacterInfo>().IncreaseBlood(1);
+					
+					hit.collider.gameObject.GetComponent<CharacterInfo>().Hit(myDamage);
+					_secondaryAttackTime = Time.time;
+				}
+			}
 		}
 	}
 
@@ -112,15 +149,13 @@ public class MovementController : MonoBehaviour
 
 	private void EnemyAttack(GameObject myTarget)
 	{
-		if (Time.time > _attackTime + GetComponent<CharacterInfo>().AttackSpeed)
+		if (Time.time > _primaryAttackTime + GetComponent<CharacterInfo>().AttackSpeed)
 		{
 			float myDamage = GetComponent<CharacterInfo>().Damage;
 		
 			myTarget.GetComponent<CharacterInfo>().Hit(myDamage);
-			_attackTime = Time.time;
+			_primaryAttackTime = Time.time;
 		}
-		
-		
 	}
 
 	private void MoveTo(Vector3 myTarget)
