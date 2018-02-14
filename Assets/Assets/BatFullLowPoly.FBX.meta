@@ -1,0 +1,171 @@
+fileFormatVersion: 2
+guid: 9131d9082dc71a045901066d6f65781d
+timeCreated: 1518615761
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: BatHead
+    100004: Box006
+    100006: LeftEar
+    100008: LeftEyebrow
+    100010: LeftFang
+    100012: LeftIris
+    100014: LeftLimb
+    100016: LeftWing
+    100018: RightEar
+    100020: RightEyebrow
+    100022: RightFang
+    100024: RightIris
+    100026: RightIris001
+    100028: RightIris002
+    100030: RightLimb
+    100032: RightWing
+    400000: //RootNode
+    400002: BatHead
+    400004: Box006
+    400006: LeftEar
+    400008: LeftEyebrow
+    400010: LeftFang
+    400012: LeftIris
+    400014: LeftLimb
+    400016: LeftWing
+    400018: RightEar
+    400020: RightEyebrow
+    400022: RightFang
+    400024: RightIris
+    400026: RightIris001
+    400028: RightIris002
+    400030: RightLimb
+    400032: RightWing
+    2100000: No Name
+    2300000: BatHead
+    2300002: Box006
+    2300004: LeftEar
+    2300006: LeftEyebrow
+    2300008: LeftFang
+    2300010: LeftIris
+    2300012: LeftLimb
+    2300014: LeftWing
+    2300016: RightEar
+    2300018: RightEyebrow
+    2300020: RightFang
+    2300022: RightIris
+    2300024: RightIris001
+    2300026: RightIris002
+    2300028: RightLimb
+    2300030: RightWing
+    3300000: BatHead
+    3300002: Box006
+    3300004: LeftEar
+    3300006: LeftEyebrow
+    3300008: LeftFang
+    3300010: LeftIris
+    3300012: LeftLimb
+    3300014: LeftWing
+    3300016: RightEar
+    3300018: RightEyebrow
+    3300020: RightFang
+    3300022: RightIris
+    3300024: RightIris001
+    3300026: RightIris002
+    3300028: RightLimb
+    3300030: RightWing
+    4300000: BatHead
+    4300002: LeftLimb
+    4300004: LeftWing
+    4300006: RightLimb
+    4300008: RightWing
+    4300010: LeftEar
+    4300012: LeftEyebrow
+    4300014: RightIris
+    4300016: RightFang
+    4300018: RightEyebrow
+    4300020: RightEar
+    4300022: LeftIris
+    4300024: LeftFang
+    4300026: RightIris001
+    4300028: RightIris002
+    4300030: Box006
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

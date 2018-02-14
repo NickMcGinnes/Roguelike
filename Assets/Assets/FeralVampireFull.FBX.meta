@@ -1,0 +1,239 @@
+fileFormatVersion: 2
+guid: c401e3e102416454d8ae657e5a3121eb
+timeCreated: 1518021385
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Head
+    100004: InnerFinger
+    100006: InnerFinger001
+    100008: LeftArm
+    100010: LeftBottomTooth
+    100012: LeftEar
+    100014: LeftEye
+    100016: LeftEyebrow
+    100018: LeftFang
+    100020: LeftHand
+    100022: LeftIris
+    100024: MiddleBottomTooth
+    100026: MiddleFinger
+    100028: MiddleFinger001
+    100030: Nose
+    100032: OuterFinger
+    100034: OuterFinger001
+    100036: RightArm
+    100038: RightBottomTooth
+    100040: RightEar
+    100042: RightEye
+    100044: RightEyebrow
+    100046: RightFang
+    100048: RightHand
+    100050: RightIris
+    100052: Thumb
+    100054: Thumb001
+    100056: TopLeftTooth
+    100058: TopRightTooth
+    400000: //RootNode
+    400002: Head
+    400004: InnerFinger
+    400006: InnerFinger001
+    400008: LeftArm
+    400010: LeftBottomTooth
+    400012: LeftEar
+    400014: LeftEye
+    400016: LeftEyebrow
+    400018: LeftFang
+    400020: LeftHand
+    400022: LeftIris
+    400024: MiddleBottomTooth
+    400026: MiddleFinger
+    400028: MiddleFinger001
+    400030: Nose
+    400032: OuterFinger
+    400034: OuterFinger001
+    400036: RightArm
+    400038: RightBottomTooth
+    400040: RightEar
+    400042: RightEye
+    400044: RightEyebrow
+    400046: RightFang
+    400048: RightHand
+    400050: RightIris
+    400052: Thumb
+    400054: Thumb001
+    400056: TopLeftTooth
+    400058: TopRightTooth
+    2100000: No Name
+    2300000: //RootNode
+    2300002: Head
+    2300004: InnerFinger
+    2300006: InnerFinger001
+    2300008: LeftArm
+    2300010: LeftBottomTooth
+    2300012: LeftEar
+    2300014: LeftEye
+    2300016: LeftEyebrow
+    2300018: LeftFang
+    2300020: LeftHand
+    2300022: LeftIris
+    2300024: MiddleBottomTooth
+    2300026: MiddleFinger
+    2300028: MiddleFinger001
+    2300030: Nose
+    2300032: OuterFinger
+    2300034: OuterFinger001
+    2300036: RightArm
+    2300038: RightBottomTooth
+    2300040: RightEar
+    2300042: RightEye
+    2300044: RightEyebrow
+    2300046: RightFang
+    2300048: RightHand
+    2300050: RightIris
+    2300052: Thumb
+    2300054: Thumb001
+    2300056: TopLeftTooth
+    2300058: TopRightTooth
+    3300000: //RootNode
+    3300002: Head
+    3300004: InnerFinger
+    3300006: InnerFinger001
+    3300008: LeftArm
+    3300010: LeftBottomTooth
+    3300012: LeftEar
+    3300014: LeftEye
+    3300016: LeftEyebrow
+    3300018: LeftFang
+    3300020: LeftHand
+    3300022: LeftIris
+    3300024: MiddleBottomTooth
+    3300026: MiddleFinger
+    3300028: MiddleFinger001
+    3300030: Nose
+    3300032: OuterFinger
+    3300034: OuterFinger001
+    3300036: RightArm
+    3300038: RightBottomTooth
+    3300040: RightEar
+    3300042: RightEye
+    3300044: RightEyebrow
+    3300046: RightFang
+    3300048: RightHand
+    3300050: RightIris
+    3300052: Thumb
+    3300054: Thumb001
+    3300056: TopLeftTooth
+    3300058: TopRightTooth
+    4300000: Body
+    4300002: Head
+    4300004: LeftBottomTooth
+    4300006: LeftEar
+    4300008: LeftEye
+    4300010: LeftEyebrow
+    4300012: LeftFang
+    4300014: LeftIris
+    4300016: MiddleBottomTooth
+    4300018: Nose
+    4300020: RightBottomTooth
+    4300022: RightEar
+    4300024: RightEye
+    4300026: RightEyebrow
+    4300028: RightFang
+    4300030: RightIris
+    4300032: TopLeftTooth
+    4300034: TopRightTooth
+    4300036: LeftArm
+    4300038: LeftHand
+    4300040: Thumb
+    4300042: InnerFinger
+    4300044: MiddleFinger
+    4300046: OuterFinger
+    4300048: RightArm
+    4300050: RightHand
+    4300052: Thumb001
+    4300054: InnerFinger001
+    4300056: MiddleFinger001
+    4300058: OuterFinger001
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
