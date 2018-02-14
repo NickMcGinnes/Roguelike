@@ -15,4 +15,6 @@ public class Room
 		GridPosition = myGridpos;
 		Type = myType;
 	}
+	
+	
 }

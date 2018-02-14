@@ -72,6 +72,7 @@ public class MovementController : MonoBehaviour
 					
 					if (GetComponent<NavMeshAgent>().isStopped)
 						GetComponent<NavMeshAgent>().isStopped = false;
+					StartCoroutine("Dash");
 					MoveTo(hit.point);
 				}
 			}
@@ -166,5 +167,12 @@ public class MovementController : MonoBehaviour
 	private void StopHere()
 	{
 		GetComponent<NavMeshAgent>().isStopped = true;
+	}
+
+	IEnumerator Dash()
+	{
+		GetComponent<NavMeshAgent>().speed = 12.0f;
+		yield return new WaitForSeconds(0.3f);
+		GetComponent<NavMeshAgent>().speed = 3.5f;
 	}
 }

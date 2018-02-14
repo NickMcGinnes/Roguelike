@@ -14,7 +14,7 @@ public class LevelGen : MonoBehaviour
 	
 	private List<Vector3> _takenPositions = new List<Vector3>();
 	
-	private int _gridSizeX, _gridSizeZ, _numberofRooms = 50;
+	private int _gridSizeX, _gridSizeZ, _numberofRooms = 35;
 	
 	public GameObject RoomWhiteObj;
 	
@@ -71,7 +71,7 @@ public class LevelGen : MonoBehaviour
 
 					checkPosition = SelectiveNewPostion();
 					iterations++;
-				} while (NumberOfNeighbors(checkPosition, _takenPositions) > 1 && iterations < 100);
+				} while (NumberOfNeighbors(checkPosition, _takenPositions) > 1 && iterations < 70);
 
 				if (iterations >= 50)
 				{
