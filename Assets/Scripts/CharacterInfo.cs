@@ -15,8 +15,15 @@ public class CharacterInfo : MonoBehaviour
 	public int Health;
 
 	public int MaxHealth;
+	
+	public float GetMaxHealth()
+	{
+		return MaxHealth;
+	}
 
 	public float HealthPercent;
+
+	public int BloodPoints = 0;
 
 	public int Strength;
 
@@ -32,7 +39,11 @@ public class CharacterInfo : MonoBehaviour
 
 	public Material CurrentMat;
 
+	public Material MyMaterial;
+
 	public Material HitMat;
+
+	public Material BleedMat;
 
 	public GameObject PlayerPrefab;
 	
@@ -41,6 +52,7 @@ public class CharacterInfo : MonoBehaviour
 	{
 		TheCanvas = GameObject.FindGameObjectWithTag("Canvas");
 		Health = MaxHealth;
+		CalcValues();
 		
 	}
 	
@@ -50,16 +62,36 @@ public class CharacterInfo : MonoBehaviour
 		CalcValues();
 	}
 	
+	private void CalcValues()
+	{
+		HealthPercent = (float)Health / MaxHealth;
+		
+		//calc damage using strength
+		
+		//calc attack speed using Dex
+		
+		//calc move speed using Dex
+	}
+	
 	public void Hit(float damage)
 	{
 		Health -= (int)damage;
-		StartCoroutine("HitColor");
 		CheckDeath();
+		StartCoroutine("HitColor");
 	}
 
 	private void CheckDeath()
 	{
-		if (Health > 0) return;
+		if (HealthPercent > 0)
+		{
+			if (HealthPercent < 0.2f)
+			{
+				SetBleeding();
+			}
+
+			return;
+		}
+		
 		if (CompareTag("Player"))
 		{
 			SetPlayerToFeral();
@@ -76,6 +108,7 @@ public class CharacterInfo : MonoBehaviour
 		GameObject newP = Instantiate(PlayerPrefab, new Vector3(-500, 0, 0), Quaternion.identity);
 		Camera.main.GetComponent<CameraFollowPlayer>().SetNewPlayer(newP);
 		TheCanvas.GetComponent<CanvasControl>().SetNewPlayer(newP);
+		newP.GetComponent<CharacterInfo>().IncreaseBlood(BloodPoints);
 		//Destroy(gameObject);
 		
 		//dont destroy but switch to new player and set this to Feral
@@ -86,18 +119,12 @@ public class CharacterInfo : MonoBehaviour
 		gameObject.layer = LayerMask.NameToLayer("Enemies");
 		
 	}
-	
-	private void CalcValues()
-	{
-		HealthPercent = (float)Health / MaxHealth;
-		
-		//calc damage using strength
-		
-		//calc attack speed using Dex
-		
-		//calc move speed using Dex
-	}
 
+	public void IncreaseBlood(int amount)
+	{
+		BloodPoints += amount;
+	}
+	
 	private void OnMouseEnter()
 	{
 		if (CompareTag("Player")) return;
@@ -121,6 +148,15 @@ public class CharacterInfo : MonoBehaviour
 		foreach (Renderer t in transform.GetComponentsInChildren<Renderer>())
 		{
 			t.material = CurrentMat;
+		}
+	}
+
+	public void SetBleeding()
+	{
+		foreach (Renderer t in transform.GetComponentsInChildren<Renderer>())
+		{
+			CurrentMat = BleedMat;
+			t.material = BleedMat;
 		}
 	}
 }

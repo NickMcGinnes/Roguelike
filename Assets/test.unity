@@ -315,6 +315,7 @@ Transform:
   - {fileID: 1798601054}
   - {fileID: 779126069}
   - {fileID: 1537585211}
+  - {fileID: 343244482}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -430,6 +431,131 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 286021164}
+--- !u!1 &343244481
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 343244482}
+  - component: {fileID: 343244487}
+  - component: {fileID: 343244486}
+  - component: {fileID: 343244485}
+  - component: {fileID: 343244484}
+  - component: {fileID: 343244483}
+  m_Layer: 9
+  m_Name: Skeleton (5)
+  m_TagString: Enemies
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &343244482
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 343244481}
+  m_LocalRotation: {x: -0, y: 0.9505326, z: -0, w: 0.31062475}
+  m_LocalPosition: {x: -4.149994, y: 0, z: 0.2}
+  m_LocalScale: {x: 0.9999999, y: 1, z: 0.9999999}
+  m_Children:
+  - {fileID: 1215424498}
+  - {fileID: 1214866169}
+  - {fileID: 1115194327}
+  - {fileID: 589293799}
+  m_Father: {fileID: 264734095}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 143.806, z: 0}
+--- !u!114 &343244483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 343244481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c2c6911d9c5fa54a86ad95afb6443c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsDebug: 0
+  Radius: 5
+  Mask:
+    serializedVersion: 2
+    m_Bits: 256
+--- !u!114 &343244484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 343244481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36cbc78efa4c24045bd7fa1be6fb7b34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Mr. Spooky
+  Info: Scary Skeleton
+  Health: 30
+  MaxHealth: 80
+  HealthPercent: 0
+  BloodPoints: 0
+  Strength: 0
+  Dexterity: 0
+  Damage: 10
+  MoveSpeed: 0
+  AttackSpeed: 2
+  TheCanvas: {fileID: 0}
+  CurrentMat: {fileID: 2100000, guid: 8e8b6d410f534d04284d6d2fa4754427, type: 2}
+  MyMaterial: {fileID: 2100000, guid: 8e8b6d410f534d04284d6d2fa4754427, type: 2}
+  HitMat: {fileID: 2100000, guid: b2c457c85326ffa489fc047b2e9984d4, type: 2}
+  BleedMat: {fileID: 2100000, guid: 18645c9984c210c4eb5d1c47245c6502, type: 2}
+  PlayerPrefab: {fileID: 0}
+--- !u!114 &343244485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 343244481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6097bb76647f0946af4755c61f7a09e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!195 &343244486
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 343244481}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 1.2
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!65 &343244487
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 343244481}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.79, y: 1.5, z: 0.52}
+  m_Center: {x: 0, y: 0.85, z: 0}
 --- !u!1 &347485952
 GameObject:
   m_ObjectHideFlags: 0
@@ -538,6 +664,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ThePlayer: {fileID: 904460486}
+  BloodUI: {fileID: 2064573593}
   MouseOverTargetUi: {fileID: 1533736528}
   TargetHealthBar: {fileID: 286021164}
   NameText: {fileID: 1205626803}
@@ -986,6 +1113,77 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 562529470}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &589293798
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 589293799}
+  - component: {fileID: 589293801}
+  - component: {fileID: 589293800}
+  m_Layer: 0
+  m_Name: Cube (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &589293799
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 589293798}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.417, y: 0.843, z: 0.263}
+  m_LocalScale: {x: 0.09466, y: 0.12622, z: 0.6905399}
+  m_Children: []
+  m_Father: {fileID: 343244482}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &589293800
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 589293798}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 8e8b6d410f534d04284d6d2fa4754427, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &589293801
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 589293798}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &720669609
 GameObject:
   m_ObjectHideFlags: 0
@@ -1266,8 +1464,9 @@ MonoBehaviour:
   Name: Mr. Spooky
   Info: Scary Skeleton
   Health: 30
-  MaxHealth: 50
+  MaxHealth: 80
   HealthPercent: 0
+  BloodPoints: 0
   Strength: 0
   Dexterity: 0
   Damage: 10
@@ -1275,7 +1474,9 @@ MonoBehaviour:
   AttackSpeed: 2
   TheCanvas: {fileID: 0}
   CurrentMat: {fileID: 2100000, guid: 8e8b6d410f534d04284d6d2fa4754427, type: 2}
+  MyMaterial: {fileID: 2100000, guid: 8e8b6d410f534d04284d6d2fa4754427, type: 2}
   HitMat: {fileID: 2100000, guid: b2c457c85326ffa489fc047b2e9984d4, type: 2}
+  BleedMat: {fileID: 2100000, guid: 18645c9984c210c4eb5d1c47245c6502, type: 2}
   PlayerPrefab: {fileID: 0}
 --- !u!114 &779126072
 MonoBehaviour:
@@ -1550,6 +1751,21 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114405634162574250, guid: 2e761d83c771e654398f863ea47f82b4,
+        type: 2}
+      propertyPath: MaxHealth
+      value: 160
+      objectReference: {fileID: 0}
+    - target: {fileID: 114405634162574250, guid: 2e761d83c771e654398f863ea47f82b4,
+        type: 2}
+      propertyPath: Damage
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114405634162574250, guid: 2e761d83c771e654398f863ea47f82b4,
+        type: 2}
+      propertyPath: AttackSpeed
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2e761d83c771e654398f863ea47f82b4, type: 2}
   m_IsPrefabParent: 0
@@ -1620,8 +1836,9 @@ MonoBehaviour:
   Name: Mr. Spooky
   Info: Scary Skeleton
   Health: 30
-  MaxHealth: 50
+  MaxHealth: 80
   HealthPercent: 0
+  BloodPoints: 0
   Strength: 0
   Dexterity: 0
   Damage: 10
@@ -1629,7 +1846,9 @@ MonoBehaviour:
   AttackSpeed: 2
   TheCanvas: {fileID: 0}
   CurrentMat: {fileID: 2100000, guid: 8e8b6d410f534d04284d6d2fa4754427, type: 2}
+  MyMaterial: {fileID: 2100000, guid: 8e8b6d410f534d04284d6d2fa4754427, type: 2}
   HitMat: {fileID: 2100000, guid: b2c457c85326ffa489fc047b2e9984d4, type: 2}
+  BleedMat: {fileID: 2100000, guid: 18645c9984c210c4eb5d1c47245c6502, type: 2}
   PlayerPrefab: {fileID: 0}
 --- !u!114 &984750409
 MonoBehaviour:
@@ -1740,6 +1959,80 @@ Transform:
   m_Father: {fileID: 1410868744}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1069532826
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1069532827}
+  - component: {fileID: 1069532829}
+  - component: {fileID: 1069532828}
+  m_Layer: 5
+  m_Name: Value
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1069532827
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1069532826}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_Children: []
+  m_Father: {fileID: 2064573594}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 221.7, y: -7}
+  m_SizeDelta: {x: 1067.9, y: 141.3}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1069532828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1069532826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.32352942, g: 0.02008114, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 100
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 100
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: BloodValue Goes Here
+--- !u!222 &1069532829
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1069532826}
 --- !u!1 &1088567663
 GameObject:
   m_ObjectHideFlags: 0
@@ -1810,6 +2103,77 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1088567663}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1115194326
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1115194327}
+  - component: {fileID: 1115194329}
+  - component: {fileID: 1115194328}
+  m_Layer: 0
+  m_Name: Cube (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1115194327
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1115194326}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.42301098, y: 0.843, z: 0.263008}
+  m_LocalScale: {x: 0.09466377, y: 0.12621838, z: 0.69053704}
+  m_Children: []
+  m_Father: {fileID: 343244482}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &1115194328
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1115194326}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 8e8b6d410f534d04284d6d2fa4754427, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &1115194329
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1115194326}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1127898681
 GameObject:
@@ -1957,6 +2321,148 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1205626803}
+--- !u!1 &1214866168
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1214866169}
+  - component: {fileID: 1214866171}
+  - component: {fileID: 1214866170}
+  m_Layer: 0
+  m_Name: Cube (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1214866169
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1214866168}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.332, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_Children: []
+  m_Father: {fileID: 343244482}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &1214866170
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1214866168}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 8e8b6d410f534d04284d6d2fa4754427, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &1214866171
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1214866168}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1215424497
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1215424498}
+  - component: {fileID: 1215424500}
+  - component: {fileID: 1215424499}
+  m_Layer: 0
+  m_Name: Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1215424498
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1215424497}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.52199996, z: 0}
+  m_LocalScale: {x: 0.75, y: 1, z: 0.5}
+  m_Children: []
+  m_Father: {fileID: 343244482}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &1215424499
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1215424497}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 8e8b6d410f534d04284d6d2fa4754427, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &1215424500
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1215424497}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1229240923
 GameObject:
   m_ObjectHideFlags: 0
@@ -2147,8 +2653,9 @@ MonoBehaviour:
   Name: Mr. Spooky
   Info: Scary Skeleton
   Health: 30
-  MaxHealth: 50
+  MaxHealth: 80
   HealthPercent: 0
+  BloodPoints: 0
   Strength: 0
   Dexterity: 0
   Damage: 10
@@ -2156,7 +2663,9 @@ MonoBehaviour:
   AttackSpeed: 2
   TheCanvas: {fileID: 0}
   CurrentMat: {fileID: 2100000, guid: 8e8b6d410f534d04284d6d2fa4754427, type: 2}
+  MyMaterial: {fileID: 2100000, guid: 8e8b6d410f534d04284d6d2fa4754427, type: 2}
   HitMat: {fileID: 2100000, guid: b2c457c85326ffa489fc047b2e9984d4, type: 2}
+  BleedMat: {fileID: 2100000, guid: 18645c9984c210c4eb5d1c47245c6502, type: 2}
   PlayerPrefab: {fileID: 0}
 --- !u!114 &1249329632
 MonoBehaviour:
@@ -2731,8 +3240,9 @@ MonoBehaviour:
   Name: Mr. Spooky
   Info: Scary Skeleton
   Health: 30
-  MaxHealth: 50
+  MaxHealth: 80
   HealthPercent: 0
+  BloodPoints: 0
   Strength: 0
   Dexterity: 0
   Damage: 10
@@ -2740,7 +3250,9 @@ MonoBehaviour:
   AttackSpeed: 2
   TheCanvas: {fileID: 0}
   CurrentMat: {fileID: 2100000, guid: 8e8b6d410f534d04284d6d2fa4754427, type: 2}
+  MyMaterial: {fileID: 2100000, guid: 8e8b6d410f534d04284d6d2fa4754427, type: 2}
   HitMat: {fileID: 2100000, guid: b2c457c85326ffa489fc047b2e9984d4, type: 2}
+  BleedMat: {fileID: 2100000, guid: 18645c9984c210c4eb5d1c47245c6502, type: 2}
   PlayerPrefab: {fileID: 0}
 --- !u!114 &1537585214
 MonoBehaviour:
@@ -3140,8 +3652,9 @@ MonoBehaviour:
   Name: Mr. Spooky
   Info: Scary Skeleton
   Health: 30
-  MaxHealth: 50
+  MaxHealth: 80
   HealthPercent: 0
+  BloodPoints: 0
   Strength: 0
   Dexterity: 0
   Damage: 10
@@ -3149,7 +3662,9 @@ MonoBehaviour:
   AttackSpeed: 2
   TheCanvas: {fileID: 0}
   CurrentMat: {fileID: 2100000, guid: 8e8b6d410f534d04284d6d2fa4754427, type: 2}
+  MyMaterial: {fileID: 2100000, guid: 8e8b6d410f534d04284d6d2fa4754427, type: 2}
   HitMat: {fileID: 2100000, guid: b2c457c85326ffa489fc047b2e9984d4, type: 2}
+  BleedMat: {fileID: 2100000, guid: 18645c9984c210c4eb5d1c47245c6502, type: 2}
   PlayerPrefab: {fileID: 0}
 --- !u!114 &1798601057
 MonoBehaviour:
@@ -3379,6 +3894,7 @@ RectTransform:
   m_Children:
   - {fileID: 1246166820}
   - {fileID: 904564555}
+  - {fileID: 2064573594}
   m_Father: {fileID: 347485956}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3455,3 +3971,72 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2037587292}
+--- !u!1 &2064573593
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2064573594}
+  - component: {fileID: 2064573596}
+  - component: {fileID: 2064573595}
+  m_Layer: 5
+  m_Name: BloodImage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2064573594
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2064573593}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1069532827}
+  m_Father: {fileID: 1986267728}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 329, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2064573595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2064573593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: c88f7e38c25732d43a5a0b63c3963008, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &2064573596
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2064573593}
