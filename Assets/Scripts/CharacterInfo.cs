@@ -37,6 +37,8 @@ public class CharacterInfo : MonoBehaviour
 
 	public float AttackSpeed;
 
+	public float SecondaryAttackSpeed;
+
 	public GameObject TheCanvas;
 
 	public Material CurrentMat;

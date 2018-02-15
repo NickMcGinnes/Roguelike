@@ -85,7 +85,10 @@ public class CanvasControl : MonoBehaviour
 	void DoToolTipUi(GameObject highlightedGameObject)
 	{
 		Weapon myWeapInfo = highlightedGameObject.GetComponent<Weapon>();
-
+		
+		if (myWeapInfo == null)
+			myWeapInfo = highlightedGameObject.GetComponentInParent<Weapon>();
+				
 		string myString = "";
 
 		myString += myWeapInfo.name;
@@ -96,7 +99,7 @@ public class CanvasControl : MonoBehaviour
 		myPos = Input.mousePosition;
 
 		TooltipUi.transform.position = myPos;
-		TooltipUi.GetComponent<Text>().text = myString;
+		TooltipUi.GetComponentInChildren<Text>().text = myString;
 	}
 
 	public void MouseOverTargetEnter()

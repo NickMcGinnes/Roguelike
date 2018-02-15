@@ -7,7 +7,9 @@ public class MovementController : MonoBehaviour
 {
 
 	public bool IsDebug = false;
-	
+
+	public bool IsQueue = false;
+
 	public float Radius = 5.0f;
 
 	public LayerMask Mask;
@@ -15,13 +17,16 @@ public class MovementController : MonoBehaviour
 	private GameObject _targetEnemy;
 
 	private float _primaryAttackTime = 0.0f;
-	
+
 	private float _secondaryAttackTime = 0.0f;
 
+	public GameObject myWeaponHand;
+
 	public GameObject myWeapon;
-	
+
 	// Update is called once per frame
-	void Update () {
+	void Update()
+	{
 		if (gameObject.CompareTag("Player"))
 		{
 			PlayerMovement();
@@ -36,60 +41,94 @@ public class MovementController : MonoBehaviour
 	{
 		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 		RaycastHit hit;
-		
-		
-		
+
 		if (Physics.Raycast(ray, out hit, Mathf.Infinity))
 		{
 			Vector3 look = hit.point;
 
 			look.y = 0.0f;
-			float distance = Vector3.Distance(gameObject.transform.position, hit.collider.gameObject.transform.position);
-			
-			
-			if (Input.GetKey(KeyCode.LeftShift))
-			{
-				
-				transform.LookAt(look);
-				StopHere();
+			float distance = Vector3.Distance(gameObject.transform.position, hit.point);
 
-				if (Input.GetMouseButtonDown(0))
-				{
-					//player attack anim
-				}
-				
-			}
-			else if (Input.GetMouseButton(0))
+			if (Input.GetMouseButton(0))
 			{
-				if (distance < 1.4f && hit.collider.gameObject.CompareTag("Enemies"))
-				{
-					StopHere();
-					transform.LookAt(look);
-					PlayerBasicAttack();
-				}
-				else
-				{
-					if (GetComponent<NavMeshAgent>().isStopped)
-						GetComponent<NavMeshAgent>().isStopped = false;
-					MoveTo(hit.point);
-				}
+				LeftClick(distance, hit, look);
 			}
 
 			if (Input.GetMouseButtonDown(1))
 			{
-				if (distance < 1.4f && hit.collider.gameObject.CompareTag("Enemies"))
-				{
-					PlayerSpecialAttack();
-				}
-				else
-				{
-					
-					if (GetComponent<NavMeshAgent>().isStopped)
-						GetComponent<NavMeshAgent>().isStopped = false;
-					StartCoroutine("Dash");
-					MoveTo(hit.point);
-				}
+				RightClick(distance, hit);
 			}
+
+			if (Input.GetKey(KeyCode.LeftShift))
+			{
+				transform.LookAt(look);
+				StopHere();
+			}
+		}
+	}
+
+	private void LeftClick(float distance, RaycastHit hit, Vector3 look)
+	{
+		//print(distance);
+		if (IsQueue)
+			IsQueue = false;
+
+		if (distance <= 1.3f)
+		{
+			if (hit.collider.gameObject.CompareTag("Weapon"))
+			{
+				print("Can pick up " + hit.collider.gameObject.name);
+				// drop current weapon
+				if (myWeapon != null)
+				{
+					myWeapon.GetComponent<Weapon>().PutDown();
+				}
+				//pickup weapon
+				myWeapon = hit.collider.gameObject;
+				if (myWeapon.GetComponent<Weapon>() == null)
+					myWeapon = myWeapon.transform.parent.gameObject;
+				myWeapon.GetComponent<Weapon>().PickUp(myWeaponHand);
+			}
+
+			else if (hit.collider.gameObject.CompareTag("Enemies"))
+			{
+				print(distance);
+				StopHere();
+				transform.LookAt(look);
+				PlayerBasicAttack();
+			}
+		}
+		else
+		{
+			//print("inside else");
+			if (GetComponent<NavMeshAgent>().isStopped)
+				GetComponent<NavMeshAgent>().isStopped = false;
+
+			MoveTo(hit.point);
+			
+			IEnumerator coroutine = QueueAction(hit, look);
+			StartCoroutine(coroutine);
+		}
+	}
+
+
+
+	private void RightClick(float distance, RaycastHit hit)
+	{
+		if (distance < 3.0f)
+		{
+		}
+
+		if (hit.collider.gameObject.CompareTag("Enemies"))
+		{
+			PlayerSpecialAttack();
+		}
+		else
+		{
+			if (GetComponent<NavMeshAgent>().isStopped)
+				GetComponent<NavMeshAgent>().isStopped = false;
+			StartCoroutine("Dash");
+			MoveTo(hit.point);
 		}
 	}
 
@@ -106,7 +145,7 @@ public class MovementController : MonoBehaviour
 				if (Time.time > _primaryAttackTime + GetComponent<CharacterInfo>().AttackSpeed)
 				{
 					float myDamage = GetComponent<CharacterInfo>().Damage;
-		
+
 					hit.collider.gameObject.GetComponent<CharacterInfo>().Hit(myDamage);
 					_primaryAttackTime = Time.time;
 				}
@@ -125,13 +164,15 @@ public class MovementController : MonoBehaviour
 			if (hit.collider.gameObject.CompareTag("Enemies"))
 			{
 				_targetEnemy = hit.collider.gameObject;
-				if (Time.time > _secondaryAttackTime + GetComponent<CharacterInfo>().AttackSpeed)
+				if (Time.time > _secondaryAttackTime + GetComponent<CharacterInfo>().SecondaryAttackSpeed)
 				{
+					/*
 					float myDamage = (0.2f * _targetEnemy.GetComponent<CharacterInfo>().GetMaxHealth());
-					
 					if (myDamage >= _targetEnemy.GetComponent<CharacterInfo>().Health)
 						gameObject.GetComponent<CharacterInfo>().IncreaseBlood(1);
-					
+					*/
+
+					float myDamage = GetComponent<CharacterInfo>().Damage * 1.3f;
 					hit.collider.gameObject.GetComponent<CharacterInfo>().Hit(myDamage);
 					_secondaryAttackTime = Time.time;
 				}
@@ -150,7 +191,7 @@ public class MovementController : MonoBehaviour
 			MoveTo(things[0].gameObject.transform.position);
 
 			float distance = Vector3.Distance(gameObject.transform.position, things[0].gameObject.transform.position);
-			
+
 			if (!(distance < 1.2f)) return;
 			StopHere();
 			transform.LookAt(things[0].gameObject.transform);
@@ -167,7 +208,7 @@ public class MovementController : MonoBehaviour
 		if (Time.time > _primaryAttackTime + GetComponent<CharacterInfo>().AttackSpeed)
 		{
 			float myDamage = GetComponent<CharacterInfo>().Damage;
-		
+
 			myTarget.GetComponent<CharacterInfo>().Hit(myDamage);
 			_primaryAttackTime = Time.time;
 		}
@@ -183,10 +224,29 @@ public class MovementController : MonoBehaviour
 		GetComponent<NavMeshAgent>().isStopped = true;
 	}
 
-	IEnumerator Dash()
+
+
+
+	private IEnumerator Dash()
 	{
 		GetComponent<NavMeshAgent>().speed = 12.0f;
 		yield return new WaitForSeconds(0.3f);
 		GetComponent<NavMeshAgent>().speed = 3.5f;
+	}
+
+
+	private IEnumerator QueueAction(RaycastHit hit, Vector3 look)
+	{
+		//print("inside coroutine");
+		IsQueue = true;
+		float distance = Vector3.Distance(gameObject.transform.position, hit.point);
+		while (distance > 1.3f)
+		{
+			distance = Vector3.Distance(gameObject.transform.position, hit.point);
+			yield return 0;
+		}
+		//print("close enough");
+		LeftClick(distance, hit, look);
+		IsQueue = false;
 	}
 }

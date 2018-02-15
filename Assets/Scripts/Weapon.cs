@@ -30,9 +30,14 @@ public class Weapon : MonoBehaviour
 	void Start () {
 		
 		TheCanvas = GameObject.FindGameObjectWithTag("Canvas");
-		
 		_rb = GetComponent<Rigidbody>();
 		_coll = GetComponent<Collider>();
+		if (_coll == null)
+		{
+			_coll = gameObject.GetComponentInChildren<Collider>();
+		}
+		
+		Grounded = true;
 	}
 	
 	// Update is called once per frame
@@ -40,11 +45,17 @@ public class Weapon : MonoBehaviour
 		
 	}
 
-	public void PickUp()
+	public void PickUp(GameObject hand)
 	{
 		_rb.useGravity = false;
 		_coll.enabled = false;
 		Grounded = false;
+		
+		gameObject.transform.SetParent(hand.transform);
+		gameObject.transform.position = hand.transform.position;
+		gameObject.transform.rotation = hand.transform.rotation;
+		
+		CloseTooltip();
 	}
 
 	public void PutDown()
@@ -52,12 +63,14 @@ public class Weapon : MonoBehaviour
 		_rb.useGravity = true;
 		_coll.enabled = true;
 		Grounded = true;
+		
+		gameObject.transform.SetParent(null);
+		
 	}
 
 	private void OnMouseEnter()
 	{
 		if (Grounded)
-			Debug.Log("onMouseEnter");
 		TheCanvas.GetComponent<CanvasControl>().MouseOverPickupEnter();
 	}
 
