@@ -48,6 +48,8 @@ public class CharacterInfo : MonoBehaviour
 	public Material BleedMat;
 
 	public GameObject PlayerPrefab;
+
+	public GameObject LootDrop;
 	
 	// Use this for initialization
 	void Start ()
@@ -133,13 +135,13 @@ public class CharacterInfo : MonoBehaviour
 	private void OnMouseEnter()
 	{
 		if (CompareTag("Player")) return;
-		TheCanvas.GetComponent<CanvasControl>().MouseOverEnter();
+		TheCanvas.GetComponent<CanvasControl>().MouseOverTargetEnter();
 	}
 
 	private void OnMouseExit()
 	{
 		if (CompareTag("Player")) return;
-		TheCanvas.GetComponent<CanvasControl>().MouseOverExit();
+		TheCanvas.GetComponent<CanvasControl>().MouseOverTargetExit();
 		
 	}
 	

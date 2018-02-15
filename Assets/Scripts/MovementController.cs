@@ -17,7 +17,8 @@ public class MovementController : MonoBehaviour
 	private float _primaryAttackTime = 0.0f;
 	
 	private float _secondaryAttackTime = 0.0f;
-	
+
+	public GameObject myWeapon;
 	
 	// Update is called once per frame
 	void Update () {
@@ -36,21 +37,34 @@ public class MovementController : MonoBehaviour
 		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 		RaycastHit hit;
 		
+		
+		
 		if (Physics.Raycast(ray, out hit, Mathf.Infinity))
 		{
+			Vector3 look = hit.point;
+
+			look.y = 0.0f;
 			float distance = Vector3.Distance(gameObject.transform.position, hit.collider.gameObject.transform.position);
+			
+			
 			if (Input.GetKey(KeyCode.LeftShift))
 			{
-				StopHere();
 				
-				//this lookat function kept breaking the player, need to 
-				//gameObject.transform.LookAt(hit.point);
+				transform.LookAt(look);
+				StopHere();
+
+				if (Input.GetMouseButtonDown(0))
+				{
+					//player attack anim
+				}
+				
 			}
 			if (Input.GetMouseButton(0))
 			{
 				if (distance < 1.4f && hit.collider.gameObject.CompareTag("Enemies"))
 				{
 					StopHere();
+					transform.LookAt(look);
 					PlayerBasicAttack();
 				}
 				else

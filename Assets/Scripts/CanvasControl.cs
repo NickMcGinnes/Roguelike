@@ -18,6 +18,8 @@ public class CanvasControl : MonoBehaviour
 	public GameObject NameText;
 	public GameObject InfoText;
 
+	//Tooltip
+	public GameObject TooltipUi;
 
 
 	//variables for playerUI
@@ -50,14 +52,18 @@ public class CanvasControl : MonoBehaviour
 
 	private void CheckTargetUi()
 	{
-		if (!MouseOverTargetUi.activeSelf) return;
+		
 		//set up our ray from screen to scene
 		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 		RaycastHit hit;
 		//if we hit
 		if (Physics.Raycast(ray, out hit, Mathf.Infinity))
 		{
-			DoMouseOverTargetUi(hit.collider.gameObject);
+			if (MouseOverTargetUi.activeSelf)
+				DoMouseOverTargetUi(hit.collider.gameObject);
+			if (TooltipUi.activeSelf)
+				DoToolTipUi(hit.collider.gameObject);
+			
 		}
 	}
 
@@ -75,17 +81,47 @@ public class CanvasControl : MonoBehaviour
 
 		InfoText.GetComponent<Text>().text = myChar.Info;
 	}
+	
+	void DoToolTipUi(GameObject highlightedGameObject)
+	{
+		Weapon myWeapInfo = highlightedGameObject.GetComponent<Weapon>();
 
-	public void MouseOverEnter()
+		string myString = "";
+
+		myString += myWeapInfo.name;
+		myString += myWeapInfo.Range;
+		myString += myWeapInfo.Damage;
+		Vector3 myPos;
+		myPos = Input.mousePosition;
+		/*
+		myPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		myPos = Camera.main.WorldToViewportPoint(myPos);
+		*/
+
+		TooltipUi.transform.position = myPos;
+		TooltipUi.GetComponent<Text>().text = myString;
+	}
+
+	public void MouseOverTargetEnter()
 	{
 		MouseOverTargetUi.SetActive(true);
 	}
 
-	public void MouseOverExit()
+	public void MouseOverTargetExit()
 	{
 		MouseOverTargetUi.SetActive(false);
 	}
 
+	public void MouseOverPickupEnter()
+	{
+		TooltipUi.SetActive(true);
+	}
+
+	public void MouseOverPickupExit()
+	{
+		TooltipUi.SetActive(false);
+	}
+	
 	public void SetNewPlayer(GameObject myNewplayer)
 	{
 		ThePlayer = myNewplayer;
