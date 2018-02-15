@@ -12,6 +12,7 @@ public class CharacterInfo : MonoBehaviour
 
 	public string Info;
 	
+	// health
 	public int Health;
 
 	public int MaxHealth;
@@ -23,6 +24,7 @@ public class CharacterInfo : MonoBehaviour
 
 	public float HealthPercent;
 
+	// blood points
 	public int BloodPoints = 0;
 
 	public int Strength;
@@ -52,8 +54,12 @@ public class CharacterInfo : MonoBehaviour
 	{
 		TheCanvas = GameObject.FindGameObjectWithTag("Canvas");
 		Health = MaxHealth;
-		CalcValues();
+		BloodPoints = 0;
 		
+		CalcValues();
+		SetMatColor();
+		
+
 	}
 	
 	// Update is called once per frame
@@ -82,13 +88,12 @@ public class CharacterInfo : MonoBehaviour
 
 	private void CheckDeath()
 	{
-		if (HealthPercent > 0)
+		if (HealthPercent >= 0.001f)
 		{
-			if (HealthPercent < 0.2f)
+			if (HealthPercent <= 0.2f)
 			{
 				SetBleeding();
 			}
-
 			return;
 		}
 		
@@ -98,8 +103,8 @@ public class CharacterInfo : MonoBehaviour
 		}
 		else
 		{
-				OnMouseExit();
-				Destroy(gameObject);
+			OnMouseExit();
+			Destroy(gameObject);
 		}
 	}
 
@@ -156,7 +161,16 @@ public class CharacterInfo : MonoBehaviour
 		foreach (Renderer t in transform.GetComponentsInChildren<Renderer>())
 		{
 			CurrentMat = BleedMat;
-			t.material = BleedMat;
+			t.material = CurrentMat;
+		}
+	}
+
+	public void SetMatColor()
+	{
+		foreach (Renderer t in transform.GetComponentsInChildren<Renderer>())
+		{
+			CurrentMat = MyMaterial;
+			t.material = CurrentMat;
 		}
 	}
 }
