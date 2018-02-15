@@ -59,7 +59,7 @@ public class MovementController : MonoBehaviour
 				}
 				
 			}
-			if (Input.GetMouseButton(0))
+			else if (Input.GetMouseButton(0))
 			{
 				if (distance < 1.4f && hit.collider.gameObject.CompareTag("Enemies"))
 				{

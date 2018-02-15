@@ -92,11 +92,8 @@ public class CanvasControl : MonoBehaviour
 		myString += myWeapInfo.Range;
 		myString += myWeapInfo.Damage;
 		Vector3 myPos;
+		
 		myPos = Input.mousePosition;
-		/*
-		myPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-		myPos = Camera.main.WorldToViewportPoint(myPos);
-		*/
 
 		TooltipUi.transform.position = myPos;
 		TooltipUi.GetComponent<Text>().text = myString;

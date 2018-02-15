@@ -18,6 +18,7 @@ public class Weapon : MonoBehaviour
 	public int WeaponType; //0 for sword, 1 for spear and 2 for crossbow
 
 	private Rigidbody _rb;
+	private Collider _coll;
 	
 	public GameObject MyBullet;
 
@@ -27,8 +28,11 @@ public class Weapon : MonoBehaviour
 	
 	// Use this for initialization
 	void Start () {
+		
 		TheCanvas = GameObject.FindGameObjectWithTag("Canvas");
-			_rb = GetComponent<Rigidbody>();
+		
+		_rb = GetComponent<Rigidbody>();
+		_coll = GetComponent<Collider>();
 	}
 	
 	// Update is called once per frame
@@ -38,16 +42,16 @@ public class Weapon : MonoBehaviour
 
 	public void PickUp()
 	{
-		
 		_rb.useGravity = false;
-
-		GetComponent<Collider>().enabled = false;
-
+		_coll.enabled = false;
+		Grounded = false;
 	}
 
 	public void PutDown()
 	{
-		
+		_rb.useGravity = true;
+		_coll.enabled = true;
+		Grounded = true;
 	}
 
 	private void OnMouseEnter()
