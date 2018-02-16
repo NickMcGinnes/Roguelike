@@ -97,7 +97,7 @@ public class CharacterInfo : MonoBehaviour
 
 	private void CheckDeath()
 	{
-		if (HealthPercent >= 0.001f)
+		if (Health > 0.0f)
 		{
 			if (HealthPercent <= 0.2f)
 			{
