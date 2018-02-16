@@ -1602,7 +1602,7 @@ MonoBehaviour:
   BloodPoints: 0
   Strength: 0
   Dexterity: 0
-  Damage: 10
+  Damage: 40
   MoveSpeed: 0
   AbilityCoolDown: 3
   TheCanvas: {fileID: 0}
