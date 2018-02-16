@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 65148276490345038}
   - component: {fileID: 114926886099087042}
   - component: {fileID: 111611826314777158}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SpearUpgraded
   m_TagString: Weapon
   m_Icon: {fileID: 0}

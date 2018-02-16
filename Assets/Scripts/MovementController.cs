@@ -188,7 +188,7 @@ public class MovementController : MonoBehaviour
 
             float distance = Vector3.Distance(gameObject.transform.position, things[0].gameObject.transform.position);
 
-            if (distance > 2.0f) return;
+            if (distance > 1.5f) return;
             StopHere();
             transform.LookAt(things[0].gameObject.transform);
             EnemyAttack(things[0].gameObject);
@@ -243,7 +243,7 @@ public class MovementController : MonoBehaviour
                 yield break;
             }
 
-            print("Still here");
+            //print("Still here");
             distance = Vector3.Distance(gameObject.transform.position, hit.point);
             yield return 0;
         }

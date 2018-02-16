@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 65257212341161822}
   - component: {fileID: 114892112221845368}
   - component: {fileID: 111372889985467984}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Spear
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -334,7 +334,7 @@ MonoBehaviour:
   Grounded: 0
   Name: Spear
   Range: 4
-  Damage: 20
+  Damage: 13
   RateOfFire: 0.9
   WeaponType: 1
   MyBullet: {fileID: 0}
