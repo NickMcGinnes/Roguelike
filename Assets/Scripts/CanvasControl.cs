@@ -71,7 +71,8 @@ public class CanvasControl : MonoBehaviour
 	private void DoMouseOverTargetUi(GameObject highlightedGameObject)
 	{
 		//get character info from target
-		CharacterInfo myChar = highlightedGameObject.GetComponent<CharacterInfo>();
+		lastMouseOver = highlightedGameObject;
+		CharacterInfo myChar = lastMouseOver.GetComponent<CharacterInfo>();
 
 		//healthBar scale
 		Vector3 newscale = TargetHealthBar.transform.localScale;
