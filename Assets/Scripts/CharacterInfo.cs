@@ -130,7 +130,7 @@ public class CharacterInfo : MonoBehaviour
 		MaxHealth = 50;
 		Health = MaxHealth;
 		gameObject.tag = "Enemies";
-		gameObject.layer = LayerMask.NameToLayer("Enemies");
+		gameObject.layer = LayerMask.NameToLayer("Feral");
 		
 	}
 

@@ -1116,26 +1116,6 @@ Prefab:
       propertyPath: m_Name
       value: Crossbow
       objectReference: {fileID: 0}
-    - target: {fileID: 54668364458730780, guid: ece4fc023bc22004bace9d3306dd002f,
-        type: 2}
-      propertyPath: m_IsKinematic
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 54668364458730780, guid: ece4fc023bc22004bace9d3306dd002f,
-        type: 2}
-      propertyPath: m_UseGravity
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114437891718974018, guid: ece4fc023bc22004bace9d3306dd002f,
-        type: 2}
-      propertyPath: RateOfFire
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114437891718974018, guid: ece4fc023bc22004bace9d3306dd002f,
-        type: 2}
-      propertyPath: Damage
-      value: 10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ece4fc023bc22004bace9d3306dd002f, type: 2}
   m_IsPrefabParent: 0

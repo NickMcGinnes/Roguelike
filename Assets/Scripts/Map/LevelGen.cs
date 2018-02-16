@@ -71,9 +71,9 @@ public class LevelGen : MonoBehaviour
 
 					checkPosition = SelectiveNewPostion();
 					iterations++;
-				} while (NumberOfNeighbors(checkPosition, _takenPositions) > 1 && iterations < 70);
+				} while (NumberOfNeighbors(checkPosition, _takenPositions) > 1 && iterations < 25);
 
-				if (iterations >= 50)
+				if (iterations >= 25)
 				{
 					print("error; could not create with fewer neighbors than: " + NumberOfNeighbors(checkPosition,_takenPositions));
 				}
@@ -141,7 +141,7 @@ public class LevelGen : MonoBehaviour
 			{
 				index = Mathf.RoundToInt(Random.value * (_takenPositions.Count - 1));
 				inc++;
-			} while (NumberOfNeighbors(_takenPositions[index],_takenPositions) > 1 && inc < 100);
+			} while (NumberOfNeighbors(_takenPositions[index],_takenPositions) > 1 && inc < 50);
 			
 			x = (int) _takenPositions[index].x;
 			z = (int) _takenPositions[index].z;

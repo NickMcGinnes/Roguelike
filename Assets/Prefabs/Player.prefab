@@ -2310,7 +2310,7 @@ MonoBehaviour:
   IsQueue: 0
   Mask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 4864
   myWeaponHand: {fileID: 1291344098114396}
   myWeapon: {fileID: 0}
 --- !u!195 &195963736426266570
