@@ -64,8 +64,8 @@ public class Weapon : MonoBehaviour
 
 	public void PickUp(GameObject hand)
 	{
-		//_rb.useGravity = false;
-		//_rb.isKinematic = true;
+		_rb.useGravity = false;
+		_rb.isKinematic = true;
 		_coll.enabled = false;
 		Grounded = false;
 		
@@ -78,8 +78,8 @@ public class Weapon : MonoBehaviour
 
 	public void PutDown()
 	{
-		//_rb.useGravity = true;
-		//_rb.isKinematic = false;
+		_rb.useGravity = true;
+		_rb.isKinematic = false;
 		_coll.enabled = true;
 		Grounded = true;
 		
