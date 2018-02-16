@@ -19,9 +19,13 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4854723201618562}
+  - component: {fileID: 54935909231930574}
+  - component: {fileID: 65257212341161822}
+  - component: {fileID: 114892112221845368}
+  - component: {fileID: 111372889985467984}
   m_Layer: 0
   m_Name: Spear
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -126,7 +130,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1202939540947706}
   m_LocalRotation: {x: 0.000000021855692, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -490.80655, y: 0.03, z: -1.076}
+  m_LocalPosition: {x: -490.8065, y: 0.03, z: -1.076}
   m_LocalScale: {x: 1, y: 1, z: 0.76341105}
   m_Children:
   - {fileID: 4244904507256560}
@@ -256,6 +260,33 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1512425713759960}
   m_Mesh: {fileID: 4300004, guid: 22223a8be2f5fc543aa5c595c1e40bea, type: 3}
+--- !u!54 &54935909231930574
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1202939540947706}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &65257212341161822
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1202939540947706}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.2, y: 0.05, z: 1.06}
+  m_Center: {x: 0, y: 0, z: 0.57}
 --- !u!95 &95278560642270020
 Animator:
   serializedVersion: 3
@@ -273,3 +304,37 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!111 &111372889985467984
+Animation:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1202939540947706}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 560acdb19ea95b440b204392f2f57012, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 560acdb19ea95b440b204392f2f57012, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!114 &114892112221845368
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1202939540947706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b08ce7ccaad65ca43ac5771580f03d98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TheCanvas: {fileID: 0}
+  Grounded: 0
+  Name: Spear
+  Range: 4
+  Damage: 20
+  RateOfFire: 0.9
+  WeaponType: 1
+  MyBullet: {fileID: 0}

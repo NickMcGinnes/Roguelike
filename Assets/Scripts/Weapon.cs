@@ -14,6 +14,8 @@ public class Weapon : MonoBehaviour
 	public float Range;
 
 	public float Damage;
+
+	public float RateOfFire;
 	
 	public int WeaponType; //0 for sword, 1 for spear and 2 for crossbow
 
@@ -22,9 +24,11 @@ public class Weapon : MonoBehaviour
 	
 	public GameObject MyBullet;
 
-	public AnimationClip[] AttackAnims;
+	public Collision passsed;
 
-	public AnimationClip MyAttackAnim;
+	//public AnimationClip[] AttackAnims;
+
+	//public AnimationClip MyAttackAnim;
 	
 	// Use this for initialization
 	void Start () {
@@ -39,15 +43,29 @@ public class Weapon : MonoBehaviour
 		
 		Grounded = true;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	public void Attack()
+	{
+		switch (WeaponType)
+		{
+				case 0:
+					StartCoroutine("WeaponAnim");
+					break;
+				case 1:
+					StartCoroutine("WeaponAnim");
+					break;
+				case 2:
+					GameObject shot = Instantiate(MyBullet, gameObject.transform.position, gameObject.transform.rotation);
+					shot.GetComponent<Bullet>().mydamage = Damage;
+					shot.GetComponent<Rigidbody>().velocity = shot.gameObject.transform.forward * 10;
+					break;		
+		}
 	}
 
 	public void PickUp(GameObject hand)
 	{
 		_rb.useGravity = false;
+		_rb.isKinematic = true;
 		_coll.enabled = false;
 		Grounded = false;
 		
@@ -61,6 +79,7 @@ public class Weapon : MonoBehaviour
 	public void PutDown()
 	{
 		_rb.useGravity = true;
+		_rb.isKinematic = false;
 		_coll.enabled = true;
 		Grounded = true;
 		
@@ -84,4 +103,40 @@ public class Weapon : MonoBehaviour
 	{
 		TheCanvas.GetComponent<CanvasControl>().MouseOverPickupExit();
 	}
+
+	private void OnCollisionEnter(Collision other)
+	{
+		print("collisions");
+		if (other.gameObject.CompareTag("Enemies"))
+			other.gameObject.GetComponent<CharacterInfo>().Hit(Damage);
+	}
+
+	public void Collided()
+	{
+		print("collision");
+		if (passsed.gameObject.CompareTag("Enemies"))
+			passsed.gameObject.GetComponent<CharacterInfo>().Hit(Damage);
+	}
+
+	IEnumerator WeaponAnim()
+	{
+		Animation myAnimation = GetComponent<Animation>();
+		myAnimation.Play();
+		_coll.enabled = true;
+		yield return new WaitForSeconds(RateOfFire);
+		myAnimation.Stop();
+		_coll.enabled = false;
+	}
+	
+	/*
+	IEnumerator SwordAnim()
+	{
+		Animation myAnimation = GetComponent<Animation>();
+		myAnimation.Play();
+		_coll.enabled = true;
+		yield return new WaitForSeconds(RateOfFire);
+		myAnimation.Stop();
+		_coll.enabled = false;
+	}
+	*/
 }

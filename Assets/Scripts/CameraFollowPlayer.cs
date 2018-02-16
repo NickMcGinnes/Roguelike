@@ -34,7 +34,8 @@ public class CameraFollowPlayer : MonoBehaviour
         float currentDistance = Vector3.Distance(targetPos, currentPos);
         currentDistance = currentDistance * 2;
         
-        currentPos =  Vector3.Lerp(currentPos, targetPos, currentDistance*Time.deltaTime);
+        //currentPos =  Vector3.Lerp(currentPos, targetPos, currentDistance*Time.deltaTime);
+        currentPos = targetPos;
         transform.position = currentPos;
 	}
 

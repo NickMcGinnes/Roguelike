@@ -35,9 +35,9 @@ public class CharacterInfo : MonoBehaviour
 	
 	public float MoveSpeed;
 
-	public float AttackSpeed;
+	public float AbilityCoolDown;
 
-	public float SecondaryAttackSpeed;
+	//public float SecondaryAttackSpeed;
 
 	public GameObject TheCanvas;
 
@@ -52,6 +52,8 @@ public class CharacterInfo : MonoBehaviour
 	public GameObject PlayerPrefab;
 
 	public GameObject LootDrop;
+
+	public GameObject[] ColorThese;
 	
 	// Use this for initialization
 	void Start ()
@@ -149,32 +151,33 @@ public class CharacterInfo : MonoBehaviour
 	
 	IEnumerator HitColor()
 	{
-		foreach (Renderer t in transform.GetComponentsInChildren<Renderer>())
+		foreach (GameObject t in ColorThese)
 		{
-			t.material = HitMat;
+			t.GetComponent<Renderer>().material = HitMat;
 		}
-		yield return new WaitForSeconds(0.2f);
-		foreach (Renderer t in transform.GetComponentsInChildren<Renderer>())
+		yield return new WaitForSeconds(0.4f);
+		foreach (GameObject t in ColorThese)
 		{
-			t.material = CurrentMat;
+			t.GetComponent<Renderer>().material = CurrentMat;
 		}
 	}
 
 	public void SetBleeding()
 	{
-		foreach (Renderer t in transform.GetComponentsInChildren<Renderer>())
+		foreach (GameObject t in ColorThese)
 		{
+			
 			CurrentMat = BleedMat;
-			t.material = CurrentMat;
+			t.GetComponent<Renderer>().material = CurrentMat;
 		}
 	}
 
 	public void SetMatColor()
 	{
-		foreach (Renderer t in transform.GetComponentsInChildren<Renderer>())
+		foreach (GameObject t in ColorThese)
 		{
 			CurrentMat = MyMaterial;
-			t.material = CurrentMat;
+			t.GetComponent<Renderer>().material = CurrentMat;
 		}
 	}
 }

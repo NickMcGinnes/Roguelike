@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4718842726003152}
   - component: {fileID: 54526131009611804}
   - component: {fileID: 114325517400017192}
+  - component: {fileID: 111215923308882860}
   m_Layer: 10
   m_Name: Sword 1
   m_TagString: Weapon
@@ -56,6 +57,7 @@ GameObject:
   - component: {fileID: 33316379552426624}
   - component: {fileID: 23845152633710868}
   - component: {fileID: 65463648556615052}
+  - component: {fileID: 114465213723028338}
   m_Layer: 10
   m_Name: Handle
   m_TagString: Weapon
@@ -114,14 +116,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1054421856304000}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -497.718, y: 0.847, z: 0.302}
+  m_LocalRotation: {x: -0.054345764, y: -0.20847547, z: -0.50946236, w: 0.83308625}
+  m_LocalPosition: {x: -496.22662, y: 0.44137436, z: -2.2947242}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4676790963750174}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -17.636002, y: -17.841002, z: -60.105003}
 --- !u!4 &4952213218127468
 Transform:
   m_ObjectHideFlags: 1
@@ -283,8 +285,23 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0000001, y: 6.31, z: 1.0000004}
+  m_Size: {x: 1.33, y: 6.31, z: 2}
   m_Center: {x: 0, y: 3.39, z: 0}
+--- !u!111 &111215923308882860
+Animation:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1054421856304000}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 0f8f8a82b7a2b204797235f8f27f0b5e, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 0f8f8a82b7a2b204797235f8f27f0b5e, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!114 &114325517400017192
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -297,11 +314,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TheCanvas: {fileID: 0}
-  Grounded: 0
+  Grounded: 1
   Name: Sword
-  Range: 1.5
+  Range: 1.2
   Damage: 10
+  RateOfFire: 0.1
   WeaponType: 0
   MyBullet: {fileID: 0}
-  AttackAnims: []
-  MyAttackAnim: {fileID: 0}
+--- !u!114 &114465213723028338
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1695999861019248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 503a5d277d08ef241b9c14421687937a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
