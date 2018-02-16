@@ -119,7 +119,7 @@ public class CharacterInfo : MonoBehaviour
 
 	private void SetPlayerToFeral()
 	{
-		GameObject newP = Instantiate(PlayerPrefab, new Vector3(-500, 0, 0), Quaternion.identity);
+		GameObject newP = Instantiate(PlayerPrefab, new Vector3(0, 0, 0), Quaternion.identity);
 		Camera.main.GetComponent<CameraFollowPlayer>().SetNewPlayer(newP);
 		TheCanvas.GetComponent<CanvasControl>().SetNewPlayer(newP);
 		newP.GetComponent<CharacterInfo>().IncreaseBlood(BloodPoints);
