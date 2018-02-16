@@ -7,6 +7,7 @@ public class CanvasControl : MonoBehaviour
 {
 
 	public GameObject ThePlayer;
+	public GameObject lastMouseOver;
 	private float _maxBarSize = 525.0f;
 
 	//variables for bloodPoints

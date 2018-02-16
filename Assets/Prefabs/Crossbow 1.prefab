@@ -678,9 +678,7 @@ MonoBehaviour:
   Grounded: 1
   Name: Crossbow
   Range: 10
-  Damage: 50
-  RateOfFire: 1
+  Damage: 10
+  RateOfFire: 0.5
   WeaponType: 2
   MyBullet: {fileID: 1479098059114416, guid: 391f94915877acd45aea4a6783c7d688, type: 2}
-  AttackAnims: []
-  MyAttackAnim: {fileID: 0}

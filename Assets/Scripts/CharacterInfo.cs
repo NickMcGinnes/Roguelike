@@ -76,6 +76,9 @@ public class CharacterInfo : MonoBehaviour
 	
 	private void CalcValues()
 	{
+		if (Health > MaxHealth)
+			Health = MaxHealth;
+		
 		HealthPercent = (float)Health / MaxHealth;
 		
 		//calc damage using strength
